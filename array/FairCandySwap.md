@@ -1,5 +1,6 @@
-#Solution
+###Solution
 
+```java
 class Solution {
 
     public int [] fairCandySwap(int [] aliceSizes, int [] bobSizes) {
@@ -42,3 +43,4 @@ class Solution {
         return answers;
     }
 }
+```

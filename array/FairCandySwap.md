@@ -1,5 +1,4 @@
 class Solution {
-    
     public int [] fairCandySwap(int [] aliceSizes, int [] bobSizes) {
         int bobSum = 0, aliceSum = 0;
         for (int bob : bobSizes)

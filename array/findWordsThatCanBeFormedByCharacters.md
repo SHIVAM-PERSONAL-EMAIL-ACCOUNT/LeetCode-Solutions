@@ -27,7 +27,7 @@ class Solution {
 
 ### Assumption
 
-For Complexity analysis, 'n` is the length of the `words` array, length of each `String` in the `array` and it is also the length of the 'chars`
+For Complexity analysis, `n` is the length of the `words` array, length of each `String` in the `array` and it is also the length of the `chars`
 
 ### Time/Space Complexity
 

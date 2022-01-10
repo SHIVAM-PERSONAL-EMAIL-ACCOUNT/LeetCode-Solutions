@@ -40,5 +40,5 @@ class Solution {
 
 ### Time/Space Complexity
 
-- Time Complexity: O(n) where `n` is the total number of numbers in the `grid`
+- Time Complexity: O(n) where `n` is the total number of elements in the `grid`
 - Space Complexity: O(n)

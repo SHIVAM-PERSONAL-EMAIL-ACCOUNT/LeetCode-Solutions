@@ -39,5 +39,5 @@ class Solution {
 
 ### Time/Space Complexity
 
-- Time Complexity: O(n) where 'n' is the length of the `moves` array
+- Time Complexity: O(n) where `n` is the length of the `moves` array
 - Sapce Complexity: O(1)

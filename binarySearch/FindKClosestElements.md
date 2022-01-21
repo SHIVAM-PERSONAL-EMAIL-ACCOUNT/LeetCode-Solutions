@@ -45,11 +45,11 @@ class Solution {
             }
             else if (low >= 0) {
                ans.add(0, arr[low]);
-                    low--; 
+               low--; 
             }
             else {
                 ans.add(arr[high]);
-                    high++;
+                high++;
             }
         }
         

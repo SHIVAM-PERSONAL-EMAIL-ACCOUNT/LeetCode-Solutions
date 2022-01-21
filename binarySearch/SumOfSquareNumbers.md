@@ -25,5 +25,5 @@ class Solution {
 
 ### Time/Space Complexity
 
-- Time Complexity: O(c<sup>1/2</sup>log(c<sup>1/2</sup>))
+- Time Complexity: O(c<sup>1/2</sup>log(c))
 - Space Complexity: O(1)

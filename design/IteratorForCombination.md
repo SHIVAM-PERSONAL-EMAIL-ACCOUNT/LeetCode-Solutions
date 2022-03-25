@@ -10,7 +10,7 @@ class CombinationIterator {
     String characters;
     int combinationLength;
     int size;
-    Map<Integer, Integer> pointerIndices;
+    int [] pointerIndices;
     
     /*
     Time Complexity: O(combinationLength)
@@ -20,18 +20,18 @@ class CombinationIterator {
         this.characters = characters;
         this.combinationLength = combinationLength;
         this.size = characters.length();
-        this.pointerIndices = new HashMap<>();
-        this.initializeMapOfPointers();
+        this.pointerIndices = new int [combinationLength];
+        this.initializeArrayOfPointers();
     }
     
     /*
     Time Complexity: O(combinationLength)
     */
-    public void initializeMapOfPointers() {
+    public void initializeArrayOfPointers() {
         for (int i = 0; i < this.combinationLength; i++)
-            pointerIndices.put(i + 1, i);
+            pointerIndices[i] = i;
         // In order to get the first combination, we need to adjust the last pointer index otherwise it will skip one combination
-        pointerIndices.put(this.combinationLength, pointerIndices.get(this.combinationLength) - 1);
+        pointerIndices[combinationLength - 1]--;
     }
     
     /*
@@ -39,11 +39,11 @@ class CombinationIterator {
     Space Complexity: O(combinationLength)
     */
     public String next() {
-        if (pointerIndices.get(combinationLength) != size - 1) {
-            pointerIndices.put(combinationLength, pointerIndices.get(combinationLength) + 1);
+        if (pointerIndices[combinationLength - 1] != size - 1) {
+            pointerIndices[combinationLength - 1]++;
             return getNext();
         }
-        computeNext(2);
+        computeNext(1);
         return getNext();
     }
     
@@ -52,8 +52,8 @@ class CombinationIterator {
     Space Complexity: O(combinationLength)
     */
     public void computeNext(int pointer) {
-        int pointerIndex = pointerIndices.get(pointer);
-        if (pointerIndex == size - combinationLength + (pointer - 1)) {
+        int pointerIndex = pointerIndices[pointer];
+        if (pointerIndex == size - combinationLength + pointer) {
             adjustPointers(pointer - 1);
             return;
         }
@@ -64,9 +64,9 @@ class CombinationIterator {
     Time Complexity: O(combinationLength)
     */
     public void adjustPointers(int pointer) {
-        pointerIndices.put(pointer, pointerIndices.get(pointer) + 1);
-        for (int i = pointer + 1; i <= combinationLength; i++)
-            pointerIndices.put(i, pointerIndices.get(i - 1) + 1);
+        pointerIndices[pointer]++;
+        for (int i = pointer + 1; i < combinationLength; i++)
+            pointerIndices[i] = pointerIndices[i - 1] + 1;
     }
     
     /*
@@ -75,7 +75,7 @@ class CombinationIterator {
     public String getNext() {
         StringBuilder res = new StringBuilder();
         for (int i = 0; i < combinationLength; i++)
-            res.append(characters.charAt(pointerIndices.get(i + 1)));
+            res.append(characters.charAt(pointerIndices[i]));
         return res.toString();
     }
     
@@ -83,7 +83,7 @@ class CombinationIterator {
     Time Complexity: O(1)
     */
     public boolean hasNext() {
-        return !(pointerIndices.get(1) == size - combinationLength);
+        return !(pointerIndices[0] == size - combinationLength);
     }
 }
 

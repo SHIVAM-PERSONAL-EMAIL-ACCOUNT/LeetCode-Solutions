@@ -43,7 +43,7 @@ class Solution {
 }
 ```
 
-### Time/Space Coomplexity
+### Time/Space Complexity
 
 - Time Complexity: O(m * n)
 - Space Complexity: O(m * n)
